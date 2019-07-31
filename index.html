@@ -1,12 +1,49 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <script type = "text/javascript" src = "/dest/bundle.js"></script>
-        <script type = "text/javascript">
-        console.log(CanViz);
-        </script>
+        <script type = "text/javascript" src = "./dest/bundle.js"></script>
     </head> 
     <body>
-
+        <div id = "shape-container"></div>
+        <script type = "text/javascript">
+            var shapeArr = ['rect','circle'];
+            var settings = {
+                    container : 'shape-container',
+                    width : 1000,
+                    height : 1000,
+                    events : ['click']
+                }
+            var canvas = new CanViz(settings);
+                for(var i = 0;i<10000;i++){
+                    canvas.drawShape({
+                        type : shapeArr[parseInt(Math.random()*shapeArr.length)],
+                        height:50,
+                        width : 50,
+                        x : parseInt(Math.random()*900),
+                        y : parseInt(Math.random()*900),
+                        strokecolor : "#000fff",
+                        fillcolor : "#000fff" 
+                    })
+                }
+                /*canvas.drawShape({
+                    type: 'rect',
+                    height:50,
+                    width : 50,
+                    x : 70,
+                    y : 100,
+                    strokecolor : "#0000ff",
+                    fillcolor : "#0000ff" 
+                });
+                canvas.drawShape({
+                    type: 'circle',
+                    height:50,
+                    width : 50,
+                    x : 100,
+                    y : 300,
+                    strokecolor : "#00ffff",
+                    fillcolor : "#00ffff" 
+                });*/
+                canvas.render();
+        </script>
     </body>
 </html>
