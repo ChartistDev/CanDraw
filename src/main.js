@@ -1,2 +1,2 @@
 import CanViz from './canviz/canvizconstructor';
-window.CanViz = new CanViz;
+window.CanViz = CanViz;
